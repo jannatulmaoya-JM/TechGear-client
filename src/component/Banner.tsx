@@ -37,7 +37,7 @@ export default function Banner() {
           variant="bordered" 
           className="font-bold px-8 py-6 rounded-full hover:bg-white/10 flex items-center gap-2"
         >
-          Learn More <FaArrowRight />
+         Shop Now <FaArrowRight />
         </Button>
       </Link>
 
