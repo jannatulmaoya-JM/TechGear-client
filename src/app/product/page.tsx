@@ -31,7 +31,8 @@ export default function ProductsPage() {
               <p className="text-indigo-700 font-bold mb-4">{product.price} BDT</p>
               <div className="flex flex-col gap-2">
                
-                <Link href={`/products/${product._id}`} className="w-full border py-2 rounded-lg text-center">View Details</Link>
+                <Link href={`/product/${product._id}`}className="w-full bg-gray-900 hover:bg-gray-800 text-white py-2 rounded-lg text-center font-bold transition-all"
+                >View Details</Link>
               </div>
             </div>
           ))}

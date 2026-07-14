@@ -62,7 +62,7 @@ export default function CustomNavbar() {
         {!isPending && session && (
           <>
             <NavbarItem>
-              <Link href="/add to card" className="text-gray-600 hover:text-indigo-700 font-medium">Add To Card</Link>
+              <Link href="/add-to-cart" className="text-gray-600 hover:text-indigo-700 font-medium">Add To Cart</Link>
             </NavbarItem>
             <NavbarItem>
               <Link href="/dashboard" className="text-gray-600 hover:text-indigo-700 font-medium">Dashboard</Link>
@@ -70,6 +70,7 @@ export default function CustomNavbar() {
           </>
         )}
       </NavbarContent>
+
 
       <NavbarContent justify="end" className="flex items-center gap-4">
         {isPending ? (
@@ -88,6 +89,7 @@ export default function CustomNavbar() {
             </NavbarItem>
           </>
         ) : (
+
           <NavbarItem className="flex items-center gap-4">
             <Popover placement="bottom-end">
               <PopoverTrigger>
