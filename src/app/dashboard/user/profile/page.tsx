@@ -42,7 +42,7 @@ export default function ProfilePage() {
   const handleUpdate = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:5000/api/user/update", {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/user/update`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: user?.email, ...formData }),

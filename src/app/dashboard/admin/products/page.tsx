@@ -15,7 +15,7 @@ export default function AdminProductsPage() {
 
   const fetchProducts = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/products");
+      const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/products`);
       const data = await res.json();
       setProducts(data);
     } catch (error) {
@@ -37,7 +37,7 @@ export default function AdminProductsPage() {
 
   const deleteProduct = async (id: string) => {
     if (confirm("Are you sure you want to delete this product?")) {
-      await fetch(`http://localhost:5000/api/products/${id}`, { method: "DELETE" });
+      await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/products/${id}`, { method: "DELETE" });
       fetchProducts();
     }
   };
@@ -47,8 +47,8 @@ export default function AdminProductsPage() {
     const { _id, ...updateData } = formData;
     
     const url = isEditing 
-      ? `http://localhost:5000/api/products/${_id}` 
-      : "http://localhost:5000/api/products";
+      ? `${process.env.NEXT_PUBLIC_SERVER_URL}/api/products/${_id}` 
+      : `${process.env.NEXT_PUBLIC_SERVER_URL}/api/products`;
 
     await fetch(url, {
       method: isEditing ? "PUT" : "POST",

@@ -5,7 +5,7 @@ export default function OrdersPage() {
   const [orders, setOrders] = useState<any[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/orders").then(res => res.json()).then(setOrders);
+    fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/orders`).then(res => res.json()).then(setOrders);
   }, []);
 
   return (

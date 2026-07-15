@@ -20,7 +20,7 @@ export default function FeaturedProducts() {
 
   useEffect(() => {
 
-    fetch("http://localhost:5000/api/products") 
+    fetch("${process.env.NEXT_PUBLIC_SERVER_URL}/api/products") 
       .then((res) => res.json())
       .then((data) => setProducts(data))
       .catch((err) => console.error("Error fetching products:", err));

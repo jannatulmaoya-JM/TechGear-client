@@ -5,11 +5,11 @@ export default function FAQPage() {
   const [faqs, setFaqs] = useState<any[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/faqs").then(res => res.json()).then(setFaqs);
+    fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/faqs`).then(res => res.json()).then(setFaqs);
   }, []);
 
   const handleReply = async (id: string, answer: string) => {
-    await fetch(`http://localhost:5000/api/faqs/${id}`, {
+    await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/faqs/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ answer })

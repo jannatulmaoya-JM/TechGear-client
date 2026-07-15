@@ -5,7 +5,7 @@ export default function MyOrdersPage() {
   const [orders, setOrders] = useState([]);
 
   const fetchOrders = async () => {
-    const res = await fetch('http://localhost:5000/api/orders');
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/orders`);
     const data = await res.json();
     setOrders(data);
   };
@@ -17,7 +17,7 @@ export default function MyOrdersPage() {
  
   const handleCancelOrder = async (id: string) => {
     if (confirm("Are you sure you want to cancel this order?")) {
-      await fetch(`http://localhost:5000/api/orders/${id}`, { method: 'DELETE' });
+      await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/orders/${id}`, { method: 'DELETE' });
       fetchOrders(); 
     }
   };

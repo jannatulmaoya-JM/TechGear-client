@@ -29,7 +29,7 @@ export default function AddToCartPage() {
 
   try {
   
-    const response = await fetch('http://localhost:5000/api/orders', {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}api/orders`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

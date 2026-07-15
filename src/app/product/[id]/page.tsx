@@ -21,7 +21,7 @@ export default function Page() {
 
    
     if (session && id) {
-      fetch(`http://localhost:5000/api/products/${id}`)
+      fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/products/${id}`)
         .then((res) => res.json())
         .then((data) => setProduct(data));
     }
