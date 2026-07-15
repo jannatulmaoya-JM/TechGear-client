@@ -1,37 +1,37 @@
+
+"use client";
+import { useEffect, useState } from "react";
+import { useRouter, useParams } from "next/navigation";
+import { useSession } from "@/lib/auth-client";
 import ProductDetails from "@/component/ProductDetails";
-import { notFound } from "next/navigation";
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react"; 
 
-async function getProduct(id: string) {
-  try {
-    const res = await fetch(`http://localhost:5000/api/products/${id}`, { cache: 'no-store' });
-    if (!res.ok) return null;
-    return res.json();
-  } catch (error) {
-    return null;
-  }
-}
+export default function Page() {
+  const { data: session, isPending } = useSession();
+  const router = useRouter();
+  const params = useParams();
+  const id = params.id as string;
+  const [product, setProduct] = useState(null);
 
-export default async function Page({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params;
-  const product = await getProduct(id);
+  useEffect(() => {
+   
+    if (!isPending && !session) {
+      router.push("/signup");
+      return;
+    }
 
-  if (!product) {
-    notFound(); 
-  }
+   
+    if (session && id) {
+      fetch(`http://localhost:5000/api/products/${id}`)
+        .then((res) => res.json())
+        .then((data) => setProduct(data));
+    }
+  }, [session, isPending, id, router]);
+
+  if (isPending) return <div className="p-10">Loading...</div>;
+  if (!product) return <div className="p-10">Loading product details...</div>;
 
   return (
     <div className="container mx-auto p-4">
-     
-      <Link 
-        href="/product" 
-        className="flex items-center gap-2 text-gray-600 hover:text-black mb-6 transition-colors font-medium"
-      >
-        <ArrowLeft size={20} />
-        Back
-      </Link>
-
       <ProductDetails product={product} />
     </div>
   );

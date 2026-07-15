@@ -9,7 +9,7 @@ export default function ContactPage() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 bg-white p-8 rounded-3xl shadow-sm">
-          {/* Contact Details with Icons */}
+      
           <div>
             <h2 className="text-2xl font-bold mb-6">Get In Touch</h2>
             <div className="space-y-6 text-gray-600">

@@ -1,12 +1,11 @@
+
 "use client";
+import { CartProvider } from "@/context/CartContext";
 
-import { ThemeProvider as NextThemesProvider } from "next-themes";
-import { ReactNode } from "react";
-
-export function Providers({ children }: { children: ReactNode }) {
+export function Providers({ children }: { children: React.ReactNode }) {
   return (
-    <NextThemesProvider attribute="class" defaultTheme="system" enableSystem>
+    <CartProvider>
       {children}
-    </NextThemesProvider>
+    </CartProvider>
   );
 }

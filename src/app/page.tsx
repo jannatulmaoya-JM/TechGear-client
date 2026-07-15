@@ -1,7 +1,7 @@
  "use client"
 import FeaturedProducts from "@/component/FeaturedProducts";
-import Banner from "../../component/Banner";
-import Features from "../../component/Features"
+import Banner from "../component/Banner";
+import Features from "../component/Features"
 import Stats from "@/component/Stats";
 import Testimonials from "@/component/Testimonials";
 import FAQ from "@/component/FAQ";

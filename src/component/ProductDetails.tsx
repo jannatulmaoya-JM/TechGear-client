@@ -8,8 +8,16 @@ export default function ProductDetails({ product }: { product: any }) {
   const { addToCart } = useCart();
 
   const handleAddToCart = () => {
-    addToCart(product); 
+   
+     addToCart({
+    ...product,
+    id: product._id, 
+    price: product.price 
+  });
     router.push("/add-to-cart");
+  
+
+    
   };
 
   return (
