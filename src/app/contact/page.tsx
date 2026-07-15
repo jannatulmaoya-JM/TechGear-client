@@ -1,5 +1,4 @@
-import { MapPin, Mail, Phone } from "lucide-react"; // lucide-react থেকে আইকন ইমপোর্ট করা হয়েছে
-
+import { MapPin, Mail, Phone } from "lucide-react";
 export default function ContactPage() {
   return (
     <main className="py-16 bg-gray-50">

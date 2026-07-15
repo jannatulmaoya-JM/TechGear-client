@@ -1,0 +1,16 @@
+import { NextRequest, NextResponse } from "next/server";
+
+export async function middleware(request: NextRequest) {
+ 
+  const token = request.cookies.get("better-auth.session_token"); 
+  if (request.nextUrl.pathname.startsWith("/dashboard") && !token) {
+    return NextResponse.redirect(new URL("/signin", request.url));
+  }
+
+  return NextResponse.next();
+}
+
+export const config = {
+
+  matcher: ["/dashboard/:path*"],
+};
